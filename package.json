@@ -1,0 +1,45 @@
+{
+  "name": "blueplm-ext-google-drive",
+  "version": "0.1.0",
+  "description": "Google Drive integration for BluePLM",
+  "main": "dist/client/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "esbuild client/index.ts --bundle --outfile=dist/client/index.js --format=esm --platform=browser --external:react --external:react-dom --external:lucide-react && esbuild client/components/GoogleDrivePanel.tsx --bundle --outfile=dist/client/components/GoogleDrivePanel.js --format=esm --platform=browser --jsx=automatic --external:react --external:react-dom --external:lucide-react && esbuild client/components/GoogleDriveSettings.tsx --bundle --outfile=dist/client/components/GoogleDriveSettings.js --format=esm --platform=browser --jsx=automatic --external:react --external:react-dom --external:lucide-react",
+    "build:server": "esbuild server/index.ts --bundle --outfile=dist/server/index.js --format=esm --platform=node && esbuild server/connect.ts --bundle --outfile=dist/server/connect.js --format=esm --platform=node && esbuild server/disconnect.ts --bundle --outfile=dist/server/disconnect.js --format=esm --platform=node && esbuild server/oauth-callback.ts --bundle --outfile=dist/server/oauth-callback.js --format=esm --platform=node && esbuild server/status.ts --bundle --outfile=dist/server/status.js --format=esm --platform=node && esbuild server/sync.ts --bundle --outfile=dist/server/sync.js --format=esm --platform=node",
+    "package": "node scripts/package.js",
+    "clean": "rimraf dist",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run clean && npm run build && npm run package"
+  },
+  "keywords": [
+    "blueplm",
+    "extension",
+    "google-drive",
+    "sync",
+    "backup"
+  ],
+  "author": "Blue Robotics",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bluerobotics/blueplm-ext-google-drive.git"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/react": "^18.2.0",
+    "archiver": "^6.0.1",
+    "esbuild": "^0.20.0",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.3.0"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "lucide-react": "^0.300.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
