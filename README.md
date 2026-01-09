@@ -59,6 +59,61 @@ npm run package
 npm run typecheck
 ```
 
+## Releasing
+
+This extension uses GitHub Actions for automated releases. When you push a tag, it automatically:
+
+1. Runs type checking
+2. Builds the extension
+3. Packages it as a `.bpx` file
+4. Creates a GitHub Release with the package attached
+5. Extracts release notes from `CHANGELOG.md`
+
+### Creating a Release
+
+1. **Update the version** in both `package.json` and `extension.json`:
+
+   ```json
+   "version": "1.0.0"
+   ```
+
+2. **Update `CHANGELOG.md`** with release notes:
+
+   ```markdown
+   ## [1.0.0] - 2025-01-15
+
+   ### Added
+   - New feature description
+
+   ### Fixed
+   - Bug fix description
+   ```
+
+3. **Commit the changes**:
+
+   ```bash
+   git add .
+   git commit -m "Release v1.0.0"
+   ```
+
+4. **Create and push a tag**:
+
+   ```bash
+   git tag v1.0.0
+   git push origin main --tags
+   ```
+
+The GitHub Action will automatically create a release with the `.bpx` package attached.
+
+### Pre-release Versions
+
+Tags containing `-alpha`, `-beta`, or `-rc` are automatically marked as pre-releases:
+
+```bash
+git tag v1.0.0-beta.1
+git push origin main --tags
+```
+
 ## Project Structure
 
 ```
