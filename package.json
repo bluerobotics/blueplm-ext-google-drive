@@ -21,7 +21,7 @@
     "backup"
   ],
   "author": "Blue Robotics",
-  "license": "MIT",
+  "license": "UNLICENSED",
   "repository": {
     "type": "git",
     "url": "https://github.com/bluerobotics/blueplm-ext-google-drive.git"

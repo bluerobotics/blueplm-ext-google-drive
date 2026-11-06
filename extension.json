@@ -7,7 +7,7 @@
   "description": "Sync files with Google Drive for backup and collaboration. Browse, edit, and manage your Google Drive files directly within BluePLM.",
   "icon": "icon.png",
   "repository": "https://github.com/bluerobotics/blueplm-ext-google-drive",
-  "license": "MIT",
+  "license": "UNLICENSED",
   "keywords": ["google", "drive", "sync", "backup", "cloud", "storage"],
   "categories": ["sync", "cloud-storage"],
   "changelog": "## 0.1.0\n- Initial release\n- OAuth 2.0 authentication with Google\n- File browser panel with grid and list views\n- Bidirectional file synchronization\n- Configurable sync interval and direction\n- File exclusion patterns with glob support",
